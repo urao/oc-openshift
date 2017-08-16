@@ -31,7 +31,16 @@
   10.Comment out, task with name, Ensure OpenShift router correctly rolls out (best-effort today) in $HOME/openshift-ansible/roles/openshift_hosted/tasks/router/router.yml
   11.Comment out, task with name, Ensure OpenShift registry correctly rolls out (best-effort today) in $HOME/openshift-ansible/roles/openshift_hosted/tasks/registry/registry.yml
   12. ansible-playbook -i inventory/byo/ose-install playbooks/byo/config.yml 
-  13. Copy contrail ansible and docker images
-
+  13. Copy contrail_ansible_package(contrail-ansible-4.0.0.0-20.tar.gz) and contrail_docker_package (contrail-kubernetes-docker-images_4.0.0.0-20.tgz) onto $HOME dir
+      1. Download contrail-kubernetes-docker_4.0.0.0-20_xenial.tgz, from juniper download site (http://www.juniper.net/support/downloads/?p=contrail#sw)
+      2. Untar the above package to get contrail_docker_package, tar -zxvf contrail-kubernetes-docker_4.0.0.0-20_xenial.tgz
+      3. Untar contrail-networking-tools_4.0.0.0-20.tgz, to get contrail_ansible_package
+  14. Untar contrail_ansible_package, tar -zxvf contrail-ansible-4.0.0.0-20.tar.gz -C $HOME/contrail_ansible/
+  15. Untar contrail_docker_package, tar -zxvf contrail-kubernetes-docker-images_4.0.0.0-20.tgz -C $HOME/contrail_ansible/playbooks/container_images/
+  16. Modify IP address of hosts file @ $HOME/contrail_ansible/playbooks/inventory/my-inventory/
+  17. Override file, all.yml with https://github.com/urao/oc-openshift/blob/master/files/all.yml under $HOME/contrail_ansible/playbooks/inventory/my-inventory/group_vars/
+  18. cd $HOME/contrail_ansible/playbooks
+  19. Run, ansible-playbook -i inventory/my-inventory site.yml
+  20.
 
   

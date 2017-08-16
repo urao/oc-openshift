@@ -28,6 +28,10 @@
   7. ansible-playbook -i inventory/byo/ose-install inventory/byo/ose-prerequisites.yml 
   8. ansible-playbook -i inventory/byo/ose-install playbooks/byo/openshift_facts.yml
   9. Comment out, docker-storage in $HOME/openshift-ansible/common/openshift-cluster/config.yml
-  10.
+  10.Comment out, task with name, Ensure OpenShift router correctly rolls out (best-effort today) in $HOME/openshift-ansible/roles/openshift_hosted/tasks/router/router.yml
+  11.Comment out, task with name, Ensure OpenShift registry correctly rolls out (best-effort today) in $HOME/openshift-ansible/roles/openshift_hosted/tasks/registry/registry.yml
+  12. ansible-playbook -i inventory/byo/ose-install playbooks/byo/config.yml 
+  13. Copy contrail ansible and docker images
+
 
   

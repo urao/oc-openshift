@@ -11,9 +11,9 @@
   2. Edit /etc/hosts file, add entries for all the 3 instances  (Ex: \<private_ip\> ec2-54-187-98-111.us-west-2.compute.amazonaws.com ec2-54-187-98-111)
   3. yum upgrade -y
   4. yum install git epel-release -y
-- Perfrom below steps on node instances
+- Perform below steps on node instances
   1. yum install kernel-devel kernel-headers nfs-utils socat wget net-tools bind-utils -y && reboot
-- Perfrom below steps on master instance
+- Perform below steps on master instance
   1. yum install ansible pyOpenSSL python-cryptography python-lxml wget net-tools bind-utils -y
   2. yum install kernel-devel kernel-headers -y && reboot
   3. Enable passwordless access to node instances from master instance
@@ -22,6 +22,8 @@
      3. ssh-copy-id root@<private_ip_node2_instance>
      4. ssh-copy-id root@<private_ip_master_instance>
   4. Clone openshift-ansible project, git clone https://github.com/openshift/openshift-ansible
-  5. 
+  5. Copy file, ose-install (https://github.com/urao/oc-openshift/blob/master/files/ose-install) to $HOME/openshift-ansible/inventory/byo/, and modify IP address, hostname with that of your instances
+  6. Copy file, ose-prerequisities.yml (https://github.com/urao/oc-openshift/blob/master/files/ose-prerequisities.yml) to $HOME/openshift-ansible/inventory/byo/
+  7. 
 
   

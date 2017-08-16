@@ -41,6 +41,6 @@
   17. Override file, all.yml with https://github.com/urao/oc-openshift/blob/master/files/all.yml under $HOME/contrail_ansible/playbooks/inventory/my-inventory/group_vars/
   18. cd $HOME/contrail_ansible/playbooks
   19. Run, ansible-playbook -i inventory/my-inventory site.yml
-  20.
+  20. 
 
   

@@ -24,6 +24,10 @@
   4. Clone openshift-ansible project, git clone https://github.com/openshift/openshift-ansible
   5. Copy file, ose-install (https://github.com/urao/oc-openshift/blob/master/files/ose-install) to $HOME/openshift-ansible/inventory/byo/, and modify IP address, hostname with that of your instances
   6. Copy file, ose-prerequisities.yml (https://github.com/urao/oc-openshift/blob/master/files/ose-prerequisities.yml) to $HOME/openshift-ansible/inventory/byo/
-  7. 
+  7. cd $HOME/openshift-ansible/
+  7. ansible-playbook -i inventory/byo/ose-install inventory/byo/ose-prerequisites.yml 
+  8. ansible-playbook -i inventory/byo/ose-install playbooks/byo/openshift_facts.yml
+  9. Comment out, docker-storage in $HOME/openshift-ansible/common/openshift-cluster/config.yml
+  10.
 
   

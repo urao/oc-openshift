@@ -41,6 +41,21 @@
   17. Override file, all.yml with https://github.com/urao/oc-openshift/blob/master/files/all.yml under $HOME/contrail_ansible/playbooks/inventory/my-inventory/group_vars/
   18. cd $HOME/contrail_ansible/playbooks
   19. Run, ansible-playbook -i inventory/my-inventory site.yml
-  20. 
+  20. Execute below commands (oc is openshift client)
+      1. oc login -u system:admin
+      2. oc new-project juniper
+      3. oc project juniper
+      4. oc create serviceaccount useroot
+      5. oadm policy add-cluster-role-to-user cluster-reader system:serviceaccount:juniper:useroot
+      6. oadm policy add-scc-to-user privileged system:serviceaccount:juniper:useroot
+      7. oc serviceaccounts get-token useroot 
+      8. Copy the token output from the above command
+      9. Login to contrail-kube-manager container, (do, docker exec -it contrail-kube-manager bash)
+      10. Paste the token value copied in step 7, in /etc/contrail/contrail-kubernetes.conf @token
+      11. Restart contrail-kube-manager (do, supervisorctl -s unix:///var/run/supervisord_kubernetes.sock restart all)
+      12. Exit out of the container
+      13. Create password for admin user to login to the Openshift UI, htpasswd /etc/origin/master/htpasswd admin
+      14. Try to login to Openshift UI, https://ec2-54-187-98-111.us-west-2.compute.amazonaws.com:8443
+      
 
   

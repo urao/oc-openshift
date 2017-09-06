@@ -56,6 +56,6 @@
       12. Exit out of the container
       13. Create password for admin user to login to the Openshift UI, htpasswd /etc/origin/master/htpasswd admin
       14. Try to login to Openshift UI, https://ec2-54-187-98-111.us-west-2.compute.amazonaws.com:8443
-      
-
-  
+  21. Edit the restricted SCC to enable docker images to run as user
+      1. On master node, do 'oc edit scc restricted'
+      2. Change the runAsUser, change strategy to RunAsAny

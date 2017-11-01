@@ -1,11 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mongo-app
-  namespace: policy-namespace
+  name: ns1-pod2-sample-app
   labels:
-    app: mongo-app
+    app: ns1-pod2-sample-app
 spec:
   containers:
-    - name: mongo-app
+    - name: ns1-pod2-sample-app
       image: ubuntu-upstart

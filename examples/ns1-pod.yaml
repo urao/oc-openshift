@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ns1-sample-app
+  labels:
+    app: ns1-sample-app
+spec:
+  containers:
+    - name: ns1-sample-app
+      image: ubuntu-upstart

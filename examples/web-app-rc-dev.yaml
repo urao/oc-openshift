@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: contrail-frontend
+  name: web-app-dev
 spec:
   replicas: 3
   selector:
-    app: contrail-frontend
+    app: web-app-dev
   template:
     metadata:
-      name: contrail-frontend
+      name: web-app-dev
       labels:
-        app: contrail-frontend
+        app: web-app-dev
     spec:
       containers:
-      - name: contrail-frontend
-        image: savvythru/contrail-frontend-app
+      - name: web-app-dev
+        image: savvythru/web-app-dev
         ports:
         - containerPort: 80
